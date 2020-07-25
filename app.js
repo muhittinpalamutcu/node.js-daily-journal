@@ -70,8 +70,8 @@ app.get("/posts/:inside", function(req, res) {
       console.log("Match Found!");
       res.render("post",{
         todayDate:date.getDate(),
-        postTitle:element.item,
-        postContent:element.content
+        postTitle:element.title,
+        postContent:element.post
       });
     }
     else{

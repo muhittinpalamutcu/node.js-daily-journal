@@ -1,12 +1,11 @@
-body{
+body {
   background-color: #1e2022;
   text-align: center;
   background-image: -webkit-linear-gradient(0, #1b262c 50%, #fafafa 50%);
-
 }
 
-hr{
-    border: 1px solid  #007bff;
+hr {
+  border: 1px solid #007bff;
 }
 
 .heading-box {
@@ -29,13 +28,13 @@ hr{
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
-.content-box{
+.content-box {
   text-align: left;
   max-height: 500px;
-   overflow: scroll;
+  overflow: scroll;
 }
 
-#form-box{
+#form-box {
   text-align: left;
-    color: #007bff;
+  color: #007bff;
 }
