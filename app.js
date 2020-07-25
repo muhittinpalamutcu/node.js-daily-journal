@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const date = require(__dirname + "/date.js");
+const _ = require('lodash');
 
 
 const app = express();
@@ -30,7 +31,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/compose", function(req, res) {
-  res.render("posts", {
+  res.render("compose", {
     todayDate: date.getDate()
   });
 });
@@ -60,6 +61,25 @@ app.post("/compose", function(req, res) {
   console.log(post);
   res.redirect("/");
 });
+
+app.get("/posts/:inside", function(req, res) {
+  var linkTo=_.lowerCase(req.params.inside);
+  posts.forEach(function(element) {
+    var elementName=element.title.toLowerCase();
+    if (elementName === linkTo) {
+      console.log("Match Found!");
+      res.render("post",{
+        todayDate:date.getDate(),
+        postTitle:element.item,
+        postContent:element.content
+      });
+    }
+    else{
+      console.log("Not a match!");
+    }
+  });
+});
+
 
 app.listen(3000, function(req, res) {
   console.log("Server started on port 3000");
